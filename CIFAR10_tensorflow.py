@@ -14,7 +14,6 @@ import tensorflow as tf
 
 def weight_variable(shape):
     initial = tf.truncated_normal(shape, stddev=0.1)
-    #initial = tf.contrib.layers.variance_scaling_initializer()
     return tf.Variable(initial)
 
 
@@ -48,6 +47,7 @@ def full_layer(input, size):
     b = bias_variable([size])
     return tf.matmul(input, W) + b
 
+# Batch Nomalization 
 def batch_norm_wrapper(inputs, is_training, decay = 0.999):
     scale = tf.Variable(tf.ones([inputs.get_shape()[-1]]))
     beta = tf.Variable(tf.zeros([inputs.get_shape()[-1]]))
@@ -74,6 +74,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
 
+# CIFAR10 데이터 경로 
 DATA_PATH = "./cifar-10-batches-py"
 BATCH_SIZE = 50
 STEPS = 500000
@@ -198,7 +199,6 @@ def build_second_net():
     C1, C2, C3 = 32, 64, 128
     F1 = 600
 
-    #x = batch_norm(x, phase)
     conv1_1 = conv_norm_layer(x, [3, 3, 3, C1], phase)
     conv1_2 = conv_norm_layer(conv1_1, [3, 3, C1, C1], phase)
     conv1_3 = conv_norm_layer(conv1_2, [3, 3, C1, C1], phase)
@@ -265,13 +265,13 @@ def create_cifar_image():
 create_cifar_image()
 
 
-# In[ ]:
+# In[14]:
 
 
 run_simple_net()
 
 
-# In[ ]:
+# In[15]:
 
 
 build_second_net()
