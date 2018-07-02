@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 model_checkpoint_path: "003520.ckpt"
 all_model_checkpoint_paths: "003520.ckpt"
+=======
+model_checkpoint_path: "161390.ckpt"
+all_model_checkpoint_paths: "161390.ckpt"
+>>>>>>> c9b24c69bb4018075f2f93b728acf6458b5db1a5
