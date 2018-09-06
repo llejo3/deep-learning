@@ -7,7 +7,7 @@ from trains.mock_investment import MockInvestment
 from data.data_utils import DataUtils
 
 
-def let_train_invest(corp_code, corp_name, params):
+def let_train_invest(corp_code, corp_name, params, no):
     stocks = Stocks()
     trains_data = TrainsData(params)
     learning = Learning(params)
@@ -28,7 +28,7 @@ def let_train_invests(corps, params):
     for index, corp_data in corps.iterrows():
         corp_code = corp_data['종목코드']
         corp_name = corp_data['회사명']
-        result = let_train_invest(corp_code, corp_name, params)
+        result = let_train_invest(corp_code, corp_name, params, no)
         comp_rmses.append(result)
         if no % 10 == 0:
             df_comp_rmses = pd.DataFrame(comp_rmses,
