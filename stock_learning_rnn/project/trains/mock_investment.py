@@ -76,11 +76,10 @@ class MockInvestment:
                 sess.run(train, feed_dict={X: testX, Y: testY, X_closes: testCloses,
                                            output_keep_prob: dropout_keep})
 
-            all_invest_money = 0
+            all_invest_money = invest_money
             all_stock_count = 0
             predicts = []
             now_close = 0
-            invest_money = 0
             for i in range(invest_count):
                 np.array([1, 2, 3], ndmin=2)
                 invest_predicts = sess.run(Y_pred, feed_dict={X: investX[i:i + 1], output_keep_prob: 1.0})

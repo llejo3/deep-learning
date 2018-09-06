@@ -7,6 +7,36 @@ from trains.mock_investment import MockInvestment
 from data.data_utils import DataUtils
 
 
+def let_train_invest(corp_code, corp_name, params):
+    stocks = Stocks()
+    trains_data = TrainsData(params)
+    learning = Learning(params)
+    invest = MockInvestment(params)
+
+    stock_data = stocks.get_stock_data(corp_code)
+    data_params, scaler_close, dataX_last = trains_data.get_train_test(stock_data)
+    rmse_val, train_cnt, rmse_vals, test_predict = learning.let_learning(corp_code, data_params)
+    last_money, last_predict, invest_predicts, all_invest_money = invest.let_invest(corp_code, train_cnt, dataX_last,
+                                                                                    data_params)
+    print(no, corp_code, corp_name, rmse_val, last_money, all_invest_money, train_cnt)
+    return [no, corp_code, corp_name, rmse_val, last_money, all_invest_money, train_cnt]
+
+
+def let_train_invests(corps, params):
+    comp_rmses = []
+    no = 1
+    for index, corp_data in corps.iterrows():
+        corp_code = corp_data['종목코드']
+        corp_name = corp_data['회사명']
+        result = let_train_invest(corp_code, corp_name, params)
+        comp_rmses.append(result)
+        if no % 10 == 0:
+            df_comp_rmses = pd.DataFrame(comp_rmses,
+                                         columns=['no', 'code', 'name', 'rmse', 'invest_result', 'all_invest_result',
+                                                  'train_cnt'])
+            DataUtils.save_excel(df_comp_rmses, 'training_invest_result.xlsx')
+        no += 1
+
 def main():
     corp = Corp()
     corps = corp.get_corps('2004-12-31', ['회사명', '종목코드'])
@@ -29,23 +59,7 @@ def main():
         'invest_min_percent': 0.6,  # 투자를 하는 최소 간격 퍼센트
         'kor_font_path': 'C:\\WINDOWS\\Fonts\\H2GTRM.TTF'
     }
-    trains_data = TrainsData(params)
-    learning = Learning(params)
-    invest = MockInvestment(params)
-    comp_rmses = []
-    no = 1
-    for index, corp_data in corps.iterrows():
-        corp_code = corp_data['종목코드']
-        corp_name = corp_data['회사명']
-        stock_data = stocks.get_stock_data(corp_code)
-        data_params, scaler_close, dataX_last = trains_data.get_train_test(stock_data)
-        rmse_val, train_cnt, rmse_vals, test_predict = learning.let_learning(corp_code, data_params)
-        last_money, last_predict, invest_predicts, all_invest_money = invest.let_invest(corp_code, train_cnt, dataX_last, data_params)
-        comp_rmses.append([no, corp_code, corp_name, rmse_val, last_money, all_invest_money, train_cnt])
-        no += 1
-
-    df_comp_rmses = pd.DataFrame(comp_rmses, columns=['no', 'code', 'name', 'rmse', 'invest_result', 'all_invest_result', 'train_cnt'])
-    DataUtils.save_excel(df_comp_rmses, 'training_invest_result.xlsx')
+    let_train_invests(corps, params)
 
 
 if __name__ == '__main__':
