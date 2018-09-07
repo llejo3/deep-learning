@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60f54aab-0a91-4408-b212-2aff4868bd1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/stock_learning_rnn.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/corp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/data_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/stocks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/trains_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_evaluation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trains/learning.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trains/mock_investment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/date_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stock_deep_learning-201808.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_deep_learning-201808.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/sessions/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/sessions/checkpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_eval.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/model_eval.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_evaluation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../stock_deep_learning.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_deep_learning.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stock_pred_select_params.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../stock_pred_select_params.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,61 +18,58 @@
     <session id="-827752496">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.21" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="ipynb" value="4" />
+          <entry key="ipynb" value="5" />
           <entry key="py" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IPNB" value="4" />
+          <entry key="IPNB" value="5" />
           <entry key="Python" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2444" />
+          <entry key="py" value="2479" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2444" />
+          <entry key="Python" value="2479" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model_evaluation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="397">
+              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <marker date="1536180873372" expanded="true" signature="261:2072" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trains/mock_investment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="110" column="51" lean-forward="true" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <marker date="1536180478188" expanded="true" signature="153:158" ph="..." />
-              </folding>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model_eval.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="0" />
             </state>
           </provider>
         </entry>
@@ -96,11 +77,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trains/learning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3">
+            <state relative-caret-position="1577">
               <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1536177504465" expanded="true" signature="192:197" ph="..." />
+                <marker date="1536270563361" expanded="true" signature="192:197" ph="..." />
               </folding>
             </state>
           </provider>
@@ -109,12 +90,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/trains_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-46">
+            <state relative-caret-position="114">
               <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="28" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-                <marker date="1536174294247" expanded="true" signature="109:114" ph="..." />
-                <marker date="1536174294247" expanded="true" signature="517:526" ph="..." />
+                <marker date="1536270563349" expanded="true" signature="109:114" ph="..." />
+                <marker date="1536270563349" expanded="true" signature="517:526" ph="..." />
               </folding>
             </state>
           </provider>
@@ -127,8 +108,8 @@
               <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <marker date="1536175762769" expanded="true" signature="138:139" ph="..." />
-                <marker date="1536175762769" expanded="true" signature="138:158" ph="..." />
+                <marker date="1536270563347" expanded="true" signature="138:139" ph="..." />
+                <marker date="1536270563347" expanded="true" signature="138:158" ph="..." />
               </folding>
             </state>
           </provider>
@@ -137,11 +118,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/data_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
+            <state relative-caret-position="361">
               <caret line="19" column="24" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="24" />
               <folding>
-                <marker date="1536177280364" expanded="true" signature="38:39" ph="..." />
-                <marker date="1536177280364" expanded="true" signature="38:64" ph="..." />
+                <marker date="1536270563258" expanded="true" signature="38:39" ph="..." />
+                <marker date="1536270563258" expanded="true" signature="38:64" ph="..." />
               </folding>
             </state>
           </provider>
@@ -150,11 +131,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/date_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
+            <state relative-caret-position="304">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
-                <marker date="1536172717295" expanded="true" signature="34:35" ph="..." />
-                <marker date="1536172717295" expanded="true" signature="34:36" ph="..." />
+                <marker date="1536270563371" expanded="true" signature="34:35" ph="..." />
+                <marker date="1536270563371" expanded="true" signature="34:36" ph="..." />
               </folding>
             </state>
           </provider>
@@ -163,7 +144,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../rltrader/main_custom.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
+            <state relative-caret-position="38">
               <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -175,7 +156,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Anaconda3/Lib/asyncio/futures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="1482">
               <caret line="85" column="22" selection-start-line="81" selection-start-column="4" selection-end-line="85" selection-end-column="22" />
               <folding>
                 <element signature="e#169#194#0" expanded="true" />
@@ -217,6 +198,7 @@
         <option value="$PROJECT_DIR$/data/data_utils.py" />
         <option value="$PROJECT_DIR$/trains/mock_investment.py" />
         <option value="$PROJECT_DIR$/trains/learning.py" />
+        <option value="$PROJECT_DIR$/model_eval.ipynb" />
         <option value="$PROJECT_DIR$/model_evaluation.py" />
       </list>
     </option>
@@ -263,6 +245,10 @@
               <item name="project" type="b2602c69:ProjectViewProjectNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -385,9 +371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -400,39 +383,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trains/mock_investment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1995">
+          <caret line="109" column="51" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
           <folding>
-            <marker date="1536179252443" expanded="true" signature="81:82" ph="..." />
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1536270563363" expanded="true" signature="153:158" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../rltrader/main_custom.py">
+    <entry file="file://$PROJECT_DIR$/trains/learning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="1577">
+          <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1536270563361" expanded="true" signature="192:197" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/asyncio/futures.py">
+    <entry file="file://$PROJECT_DIR$/data/trains_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="85" column="22" selection-start-line="81" selection-start-column="4" selection-end-line="85" selection-end-column="22" />
+        <state relative-caret-position="114">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="28" />
           <folding>
-            <element signature="e#169#194#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/date_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <marker date="1536172717295" expanded="true" signature="34:35" ph="..." />
-            <marker date="1536172717295" expanded="true" signature="34:36" ph="..." />
+            <element signature="e#0#36#0" expanded="true" />
+            <marker date="1536270563349" expanded="true" signature="109:114" ph="..." />
+            <marker date="1536270563349" expanded="true" signature="517:526" ph="..." />
           </folding>
         </state>
       </provider>
@@ -443,8 +426,50 @@
           <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1536175762769" expanded="true" signature="138:139" ph="..." />
-            <marker date="1536175762769" expanded="true" signature="138:158" ph="..." />
+            <marker date="1536270563347" expanded="true" signature="138:139" ph="..." />
+            <marker date="1536270563347" expanded="true" signature="138:158" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/data_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <marker date="1536270563258" expanded="true" signature="38:39" ph="..." />
+            <marker date="1536270563258" expanded="true" signature="38:64" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/date_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <marker date="1536270563371" expanded="true" signature="34:35" ph="..." />
+            <marker date="1536270563371" expanded="true" signature="34:36" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../rltrader/main_custom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/asyncio/futures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="85" column="22" selection-start-line="81" selection-start-column="4" selection-end-line="85" selection-end-column="22" />
+          <folding>
+            <element signature="e#169#194#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -456,59 +481,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/trains_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-            <marker date="1536174294247" expanded="true" signature="109:114" ph="..." />
-            <marker date="1536174294247" expanded="true" signature="517:526" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/data_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <marker date="1536177280364" expanded="true" signature="38:39" ph="..." />
-            <marker date="1536177280364" expanded="true" signature="38:64" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trains/learning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1536177504465" expanded="true" signature="192:197" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trains/mock_investment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="110" column="51" lean-forward="true" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1536180478188" expanded="true" signature="153:158" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model_evaluation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="397">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1536180873372" expanded="true" signature="261:2072" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_eval.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
         </state>
       </provider>
     </entry>

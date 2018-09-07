@@ -40,7 +40,6 @@ def let_train_invests(corps, params):
 def main():
     corp = Corp()
     corps = corp.get_corps('2004-12-31', ['회사명', '종목코드'])
-    stocks = Stocks()
     params = {
         'seq_length': 5,  # 시퀀스 갯수
         'data_dim': 5,  # 입력 데이터 갯수
@@ -48,10 +47,10 @@ def main():
         'dropout_keep': 0.8,  # dropout
         'output_dim': 1,  # 출력 데이터 갯수
         'learning_rate': 0.0001,
-        'iterations': [10, 200],  # 최소, 최대 훈련 반복횟수
-        'rmse_max': 0.045,
+        'iterations': [1000, 10000],  # 최소, 최대 훈련 반복횟수
+        'rmse_max': 0.02,
         'train_percent': 80.0,  # 훈련 데이터 퍼센트
-        'loss_up_count': 12,  # early stopping
+        'loss_up_count': 100,  # early stopping
         'invest_count': 50,  # 투자 횟수
         'invest_money': 1000000,  # 각 주식에 모의투자할 금액
         'fee_percent': 0.015,  # 투자시 발생하는 수수료
