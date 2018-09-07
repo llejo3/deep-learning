@@ -144,12 +144,16 @@ class Learning:
             rmse_vals = []
 
             for i in range(iterations[1]):
-				if not restored or i != 0:
+				if i != 0 or not restored:
 					_, step_loss = sess.run([train, loss], feed_dict={X: trainX, Y: trainY, X_closes: trainCloses,
 																	  output_keep_prob: dropout_keep})
                 test_predict = sess.run(Y_pred, feed_dict={X: testX, output_keep_prob: 1.0})
                 rmse_val = sess.run(rmse, feed_dict={targets: testY, predictions: test_predict, X_closes: testCloses})
                 rmse_vals.append(rmse_val)
+				
+				if i == 0 and restored:
+					max_test_predict, min_rmse_val, = test_predict, rmse_val
+				
                 if rmse_val < min_rmse_val:
                     self.save_learning_image(sess, saver, graph_params, comp_code)
                     less_cnt = 0
