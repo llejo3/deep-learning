@@ -132,7 +132,7 @@ class Learning:
             init = tf.global_variables_initializer()
             sess.run(init)
 			
-			if os.path.isfile(session_path + '.meta'):
+			if os.path.isfile(session_path + '.index'):
                 saver.restore(sess, session_path) 
                 iterations[0] = 0
 				restored = True

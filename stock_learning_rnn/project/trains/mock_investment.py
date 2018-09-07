@@ -72,9 +72,9 @@ class MockInvestment:
             Y_pred = tf.get_collection('Y_pred')[0]
             output_keep_prob = tf.get_collection('output_keep_prob')[0]
 
-            for i in range(int(train_cnt)):
-                sess.run(train, feed_dict={X: testX, Y: testY, X_closes: testCloses,
-                                           output_keep_prob: dropout_keep})
+            #for i in range(int(train_cnt)):
+            #    sess.run(train, feed_dict={X: testX, Y: testY, X_closes: testCloses,
+            #                               output_keep_prob: dropout_keep})
 
             all_invest_money = invest_money
             all_stock_count = 0
@@ -93,10 +93,10 @@ class MockInvestment:
                 if i==0:
                     all_invest_money, all_stock_count = self.let_invest_money(1.0, now_scaled_close, now_close,
                                                                               all_invest_money, all_stock_count)
-                for j in range(int(train_cnt / 5)):
-                    sess.run(train,
-                             feed_dict={X: investX[j:j + 1], Y: investY[j:j + 1], X_closes: investCloses[j:j + 1],
-                                        output_keep_prob: dropout_keep})
+                #for j in range(int(train_cnt / 5)):
+                #    sess.run(train,
+                #             feed_dict={X: investX[j:j + 1], Y: investY[j:j + 1], X_closes: investCloses[j:j + 1],
+                #                        output_keep_prob: dropout_keep})
                 # break
             invest_money += self.to_money(now_stock_cnt, now_close)
             all_invest_money = self.to_money(all_stock_count, now_close)
