@@ -22,10 +22,13 @@ def let_train_invest(corp_code, corp_name, params, no):
     return [no, corp_code, corp_name, rmse_val, last_money, all_invest_money, train_cnt]
 
 
-def let_train_invests(corps, params):
+def let_train_invests(corps, params, start_no=1):
     comp_rmses = []
     no = 1
     for index, corp_data in corps.iterrows():
+        if no < start_no:
+            no += 1
+            continue
         corp_code = corp_data['종목코드']
         corp_name = corp_data['회사명']
         result = let_train_invest(corp_code, corp_name, params, no)
@@ -37,7 +40,7 @@ def let_train_invests(corps, params):
             DataUtils.save_excel(df_comp_rmses, './result/training_invest_result.xlsx')
         no += 1
 
-def main():
+def main(start_no=1):
     corp = Corp()
     corps = corp.get_corps('2004-12-31', ['회사명', '종목코드'])
     params = {
@@ -58,8 +61,8 @@ def main():
         'invest_min_percent': 0.6,  # 투자를 하는 최소 간격 퍼센트
         'kor_font_path': 'C:\\WINDOWS\\Fonts\\H2GTRM.TTF'
     }
-    let_train_invests(corps, params)
+    let_train_invests(corps, params, start_no)
 
 
 if __name__ == '__main__':
-    main()
+    main(11)
