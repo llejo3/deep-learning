@@ -34,7 +34,7 @@ def let_train_invests(corps, params):
             df_comp_rmses = pd.DataFrame(comp_rmses,
                                          columns=['no', 'code', 'name', 'rmse', 'invest_result', 'all_invest_result',
                                                   'train_cnt'])
-            DataUtils.save_excel(df_comp_rmses, 'training_invest_result.xlsx')
+            DataUtils.save_excel(df_comp_rmses, './result/training_invest_result.xlsx')
         no += 1
 
 def main():

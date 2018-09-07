@@ -125,10 +125,17 @@ class Learning:
         rmse_max = self.params['rmse_max']
 
         saver = tf.train.Saver()
+		session_path = DataUtils.get_session_path(comp_code)
+		restored = False
 
         with tf.Session() as sess:
             init = tf.global_variables_initializer()
             sess.run(init)
+			
+			if os.path.isfile(session_path + '.meta'):
+                saver.restore(sess, session_path) 
+                iterations[0] = 0
+				restored = True
 
             # Training step
             min_rmse_val = 999999
@@ -137,8 +144,9 @@ class Learning:
             rmse_vals = []
 
             for i in range(iterations[1]):
-                _, step_loss = sess.run([train, loss], feed_dict={X: trainX, Y: trainY, X_closes: trainCloses,
-                                                                  output_keep_prob: dropout_keep})
+				if not restored or i != 0:
+					_, step_loss = sess.run([train, loss], feed_dict={X: trainX, Y: trainY, X_closes: trainCloses,
+																	  output_keep_prob: dropout_keep})
                 test_predict = sess.run(Y_pred, feed_dict={X: testX, output_keep_prob: 1.0})
                 rmse_val = sess.run(rmse, feed_dict={targets: testY, predictions: test_predict, X_closes: testCloses})
                 rmse_vals.append(rmse_val)
@@ -149,7 +157,7 @@ class Learning:
                     max_test_predict, min_rmse_val, = test_predict, rmse_val
                 else:
                     less_cnt += 1
-                if i > iterations[0] and less_cnt > loss_up_count and rmse_max > min_rmse_val:
+                if i >= iterations[0] and less_cnt > loss_up_count and rmse_max > min_rmse_val:
                     break
             # draw_plot(rmse_vals, max_test_predict, testY, comp_name)
             return min_rmse_val, train_count, rmse_vals, max_test_predict

@@ -81,7 +81,6 @@ class MockInvestment:
             predicts = []
             now_close = 0
             for i in range(invest_count):
-                np.array([1, 2, 3], ndmin=2)
                 invest_predicts = sess.run(Y_pred, feed_dict={X: investX[i:i + 1], output_keep_prob: 1.0})
                 predicts.append(invest_predicts[0])
 
