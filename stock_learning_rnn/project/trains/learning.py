@@ -3,6 +3,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import matplotlib as mpl
+import os
 from data.data_utils import DataUtils
 
 
@@ -125,17 +126,17 @@ class Learning:
         rmse_max = self.params['rmse_max']
 
         saver = tf.train.Saver()
-		session_path = DataUtils.get_session_path(comp_code)
-		restored = False
+        session_path = DataUtils.get_session_path(comp_code)
+        restored = False
 
         with tf.Session() as sess:
             init = tf.global_variables_initializer()
             sess.run(init)
 			
-			if os.path.isfile(session_path + '.index'):
+            if os.path.isfile(session_path + '.index'):
                 saver.restore(sess, session_path) 
                 iterations[0] = 0
-				restored = True
+                restored = True
 
             # Training step
             min_rmse_val = 999999
@@ -144,15 +145,15 @@ class Learning:
             rmse_vals = []
 
             for i in range(iterations[1]):
-				if i != 0 or not restored:
-					_, step_loss = sess.run([train, loss], feed_dict={X: trainX, Y: trainY, X_closes: trainCloses,
+                if i != 0 or not restored:
+                    _, step_loss = sess.run([train, loss], feed_dict={X: trainX, Y: trainY, X_closes: trainCloses,
 																	  output_keep_prob: dropout_keep})
                 test_predict = sess.run(Y_pred, feed_dict={X: testX, output_keep_prob: 1.0})
                 rmse_val = sess.run(rmse, feed_dict={targets: testY, predictions: test_predict, X_closes: testCloses})
                 rmse_vals.append(rmse_val)
 				
-				if i == 0 and restored:
-					max_test_predict, min_rmse_val, = test_predict, rmse_val
+                if i == 0 and restored:
+                    max_test_predict, min_rmse_val, = test_predict, rmse_val
 				
                 if rmse_val < min_rmse_val:
                     self.save_learning_image(sess, saver, graph_params, comp_code)
