@@ -1,9 +1,9 @@
 import numpy as np
 import tensorflow as tf
+import os
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import matplotlib as mpl
-import os
 from data.data_utils import DataUtils
 
 
@@ -84,20 +84,7 @@ class Learning:
         plt.show()
 
     @staticmethod
-    def save_learning_image(sess, saver, graph_params, comp_code):
-        X = graph_params['X']
-        Y = graph_params['Y']
-        X_closes = graph_params['X_closes']
-        train = graph_params['train']
-        Y_pred = graph_params['Y_pred']
-        output_keep_prob = graph_params['output_keep_prob']
-
-        tf.add_to_collection("X", X)
-        tf.add_to_collection("X_closes", X_closes)
-        tf.add_to_collection("Y", Y)
-        tf.add_to_collection("train", train)
-        tf.add_to_collection("Y_pred", Y_pred)
-        tf.add_to_collection("output_keep_prob", output_keep_prob)
+    def save_learning_image(sess, saver, comp_code):
         file_path = DataUtils.get_session_path(comp_code)
         saver.save(sess, file_path)
 
@@ -132,9 +119,9 @@ class Learning:
         with tf.Session() as sess:
             init = tf.global_variables_initializer()
             sess.run(init)
-			
+
             if os.path.isfile(session_path + '.index'):
-                saver.restore(sess, session_path) 
+                saver.restore(sess, session_path)
                 iterations[0] = 0
                 restored = True
 
@@ -145,18 +132,18 @@ class Learning:
             rmse_vals = []
 
             for i in range(iterations[1]):
-                if i != 0 or not restored:
+                if not restored or i != 0:
                     _, step_loss = sess.run([train, loss], feed_dict={X: trainX, Y: trainY, X_closes: trainCloses,
-																	  output_keep_prob: dropout_keep})
+                                                                      output_keep_prob: dropout_keep})
                 test_predict = sess.run(Y_pred, feed_dict={X: testX, output_keep_prob: 1.0})
                 rmse_val = sess.run(rmse, feed_dict={targets: testY, predictions: test_predict, X_closes: testCloses})
                 rmse_vals.append(rmse_val)
-				
+
                 if i == 0 and restored:
                     max_test_predict, min_rmse_val, = test_predict, rmse_val
-				
+
                 if rmse_val < min_rmse_val:
-                    self.save_learning_image(sess, saver, graph_params, comp_code)
+                    self.save_learning_image(sess, saver, comp_code)
                     less_cnt = 0
                     train_count = i;
                     max_test_predict, min_rmse_val, = test_predict, rmse_val

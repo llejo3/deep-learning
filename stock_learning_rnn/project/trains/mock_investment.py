@@ -57,6 +57,15 @@ class MockInvestment:
         testY = data_params['testY']
         testCloses = data_params['testCloses']
 
+        learning = Learning(self.params)
+        graph_params = learning.draw_graph()
+        X = graph_params['X']
+        X_closes = graph_params['X_closes']
+        Y = graph_params['Y']
+        train = graph_params['train']
+        Y_pred = graph_params['Y_pred']
+        output_keep_prob = graph_params['output_keep_prob']
+
         now_stock_cnt = 0
         saver = tf.train.Saver()
         with tf.Session() as sess:
@@ -65,16 +74,10 @@ class MockInvestment:
 
             file_path = DataUtils.get_session_path(comp_code)
             saver.restore(sess, file_path)
-            X = tf.get_collection('X')[0]
-            X_closes = tf.get_collection('X_closes')[0]
-            Y = tf.get_collection('Y')[0]
-            train = tf.get_collection('train')[0]
-            Y_pred = tf.get_collection('Y_pred')[0]
-            output_keep_prob = tf.get_collection('output_keep_prob')[0]
 
-            #for i in range(int(train_cnt)):
-            #    sess.run(train, feed_dict={X: testX, Y: testY, X_closes: testCloses,
-            #                               output_keep_prob: dropout_keep})
+            for i in range(int(train_cnt/4)):
+               sess.run(train, feed_dict={X: testX, Y: testY, X_closes: testCloses,
+                                          output_keep_prob: dropout_keep})
 
             all_invest_money = invest_money
             all_stock_count = 0
@@ -89,20 +92,18 @@ class MockInvestment:
                 now_close = investRealCloses[i]
                 # print(invest_predict, now_scaled_close, now_close)
                 invest_money, now_stock_cnt = self.let_invest_money(invest_predict, now_scaled_close, now_close,
-                                                               invest_money, now_stock_cnt)
-                if i==0:
-                    all_invest_money, all_stock_count = self.let_invest_money(1.0, now_scaled_close, now_close,
+                                                                    invest_money, now_stock_cnt)
+                if i == 0:
+                    all_invest_money, all_stock_count = self.let_invest_money(10.0, now_scaled_close, now_close,
                                                                               all_invest_money, all_stock_count)
-                #for j in range(int(train_cnt / 5)):
-                #    sess.run(train,
-                #             feed_dict={X: investX[j:j + 1], Y: investY[j:j + 1], X_closes: investCloses[j:j + 1],
-                #                        output_keep_prob: dropout_keep})
-                # break
+                for j in range(int(train_cnt / 10)):
+                   sess.run(train,
+                            feed_dict={X: investX[j:j + 1], Y: investY[j:j + 1], X_closes: investCloses[j:j + 1],
+                                       output_keep_prob: dropout_keep})
+                #break
             invest_money += self.to_money(now_stock_cnt, now_close)
-            all_invest_money = self.to_money(all_stock_count, now_close)
-            graph_params = {'X': X, 'X_closes': X_closes, 'Y': Y, 'train': train,
-                            'Y_pred': Y_pred, 'output_keep_prob': output_keep_prob}
-            Learning.save_learning_image(sess, saver, graph_params, comp_code)
+            all_invest_money += self.to_money(all_stock_count, now_close)
+            #learning.save_learning_image(sess, saver, comp_code)
 
             last_predict = sess.run(Y_pred, feed_dict={X: dataX_last, output_keep_prob: 1.0})
         # print(now_money)
