@@ -1,6 +1,7 @@
 from pandas import Series, DataFrame
 from sklearn import preprocessing
 import numpy as np
+from data.stocks import Stocks
 
 
 class TrainsData:
@@ -72,7 +73,7 @@ class TrainsData:
         testCloses = np.array(dataY[train_size - 1:train_last - 1])
         investCloses = np.array(dataY[train_last - 1:data_count - 1])
         investRealCloses = np.array(data['close'][train_last - 1 + seq_length:data_count + seq_length].values)
-        # print(investRealCloses)
+
         return {
             'trainX': trainX, 'trainY': trainY, 'trainCloses': trainCloses,
             'testX': testX, 'testY': testY, 'testCloses': testCloses,
@@ -83,4 +84,6 @@ class TrainsData:
         """train, test 데이터로 만든다."""
         scaled_data, scaler_close = self.get_scaled_data(data)
         dataX, dataY, y, dataX_last = self.get_dataXY(scaled_data)
-        return self.split_train_test(dataX, dataY, data, y), scaler_close, dataX_last
+        data_params = self.split_train_test(dataX, dataY, data, y)
+        return data_params, scaler_close, dataX_last
+

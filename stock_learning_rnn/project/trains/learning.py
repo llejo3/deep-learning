@@ -5,13 +5,16 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import matplotlib as mpl
 from data.data_utils import DataUtils
+from data.stocks import Stocks
+from data.trains_data import TrainsData
 
 
 class Learning:
     """학습을 시킨다"""
 
-    def __init__(self, params):
+    def __init__(self, params, is_all_corps_model=False):
         self.params = params
+        self.all_corps_model = is_all_corps_model
 
     def draw_graph(self):
         """텐스플로우 변수관계 그래프롤 그린다."""
@@ -36,7 +39,7 @@ class Learning:
             outputs[:, -1], self.params['output_dim'], activation_fn=None)  # We use the last cell's output
 
         # cost/loss
-        loss = tf.reduce_sum(tf.square(1 - (1 + Y_pred - X_closes) / (1 + Y - X_closes)))
+        loss = tf.reduce_sum(tf.square((Y - Y_pred) / (1 + Y - X_closes)))
 
         optimizer = tf.train.AdamOptimizer(self.params['learning_rate'])
         train = optimizer.minimize(loss)
@@ -44,7 +47,7 @@ class Learning:
         # RMSE
         targets = tf.placeholder(tf.float32, [None, 1])
         predictions = tf.placeholder(tf.float32, [None, 1])
-        rmse = tf.sqrt(tf.reduce_mean(tf.square(1 - (1 + predictions - X_closes) / (1 + targets - X_closes))))
+        rmse = tf.sqrt(tf.reduce_mean(tf.square((targets - predictions) / (1 + targets - X_closes))))
 
         return {
             'X': X,
@@ -83,9 +86,8 @@ class Learning:
         plt.title(comp_name)
         plt.show()
 
-    @staticmethod
-    def save_learning_image(sess, saver, comp_code):
-        file_path = DataUtils.get_session_path(comp_code)
+    def save_learning_image(self, sess, saver, comp_code):
+        file_path = DataUtils.get_session_path(comp_code, self.all_corps_model)
         saver.save(sess, file_path)
 
     def let_training(self, graph_params, comp_code, data_params):
@@ -113,7 +115,7 @@ class Learning:
         rmse_max = self.params['rmse_max']
 
         saver = tf.train.Saver()
-        session_path = DataUtils.get_session_path(comp_code)
+        session_path = DataUtils.get_session_path(comp_code, self.all_corps_model)
         restored = False
 
         with tf.Session() as sess:
@@ -145,7 +147,7 @@ class Learning:
                 if rmse_val < min_rmse_val:
                     self.save_learning_image(sess, saver, comp_code)
                     less_cnt = 0
-                    train_count = i;
+                    train_count = i
                     max_test_predict, min_rmse_val, = test_predict, rmse_val
                 else:
                     less_cnt += 1

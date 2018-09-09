@@ -17,7 +17,10 @@ class DataUtils:
         return format(int(corp_code), "06d")
 
     @staticmethod
-    def get_session_path(corp_code):
+    def get_session_path(corp_code, all_data=False):
         """저장할 세션의 경로 및 파일명"""
-        comp_code = DataUtils.to_string_corp_code(corp_code)
+        if all_data:
+            comp_code = 'ALL_CORPS'
+        else:
+            comp_code = DataUtils.to_string_corp_code(corp_code)
         return "./data/files/sessions/" + comp_code + ".ckpt"

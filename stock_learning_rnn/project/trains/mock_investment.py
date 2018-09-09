@@ -1,4 +1,3 @@
-import numpy as np
 import tensorflow as tf
 import math
 from data.data_utils import DataUtils
@@ -8,8 +7,9 @@ from trains.learning import Learning
 class MockInvestment:
     """모의투자"""
 
-    def __init__(self, params):
+    def __init__(self, params, is_all_corps_model=False):
         self.params = params
+        self.all_corps_model = is_all_corps_model
 
     def let_invest_money(self, invest_predict, now_scaled_close, now_close, now_money, now_stock_cnt):
         """예측 값에 따라 매수 매도를 실행한다."""
@@ -42,6 +42,14 @@ class MockInvestment:
             money = (now_close - (fee + tax)) * now_stock_cnt
         return money
 
+    def get_real_money(self, data_params, scaler_close, last_predict):
+        """실제 가격을 가져온다."""
+        investRealCloses = data_params['investRealCloses']
+        predict_money = scaler_close.inverse_transform(last_predict)
+        last_close_money = investRealCloses[len(investRealCloses) - 1]
+        last_pred_money = predict_money[0][0]
+        return last_close_money, last_pred_money
+
     def let_invest(self, comp_code, train_cnt, dataX_last, data_params):
         """학습 후 모의 주식 거래를 한다."""
         invest_count = self.params['invest_count']
@@ -72,7 +80,7 @@ class MockInvestment:
             init = tf.global_variables_initializer()
             sess.run(init)
 
-            file_path = DataUtils.get_session_path(comp_code)
+            file_path = DataUtils.get_session_path(comp_code, self.all_corps_model)
             saver.restore(sess, file_path)
 
             for i in range(int(train_cnt/4)):
@@ -103,7 +111,6 @@ class MockInvestment:
                 #break
             invest_money += self.to_money(now_stock_cnt, now_close)
             all_invest_money += self.to_money(all_stock_count, now_close)
-            #learning.save_learning_image(sess, saver, comp_code)
 
             last_predict = sess.run(Y_pred, feed_dict={X: dataX_last, output_keep_prob: 1.0})
         # print(now_money)

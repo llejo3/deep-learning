@@ -20,6 +20,7 @@ def let_train_invest(corp_code, corp_name, params, no):
                                                                                     data_params)
     learning.draw_plot(rmse_vals, test_predict, invest_predicts, corp_name, data_params)
     last_close_money, last_pred_money = invest.get_real_money(data_params, scaler_close, last_predict)
+    print("회사명:", corp_name)
     print("RMSE:", rmse_val)
     print("train_cnt:", train_cnt)
     if params['invest_count'] > 0:
@@ -38,7 +39,7 @@ def let_train_invests(corp_names, params):
     comp_rmses = []
     no = 1
     for corp_name in corp_names:
-        corp_code = corp.get_comp_code(corp_name)
+        corp_code = corp.get_corp_code(corp_name)
         result = let_train_invest(corp_code, corp_name, params, no)
         comp_rmses.append(result)
         no += 1
@@ -63,7 +64,7 @@ def main(corp_names = ["삼성중공업","기아자동차", "게임빌","루트�
         'invest_money': 10000000,  # 각 주식에 모의투자할 금액
         'fee_percent': 0.015,  # 투자시 발생하는 수수료
         'tax_percent': 0.5,  # 매도시 발생하는 세금
-        'invest_min_percent': 0.6,  # 투자를 하는 최소 간격 퍼센트
+        'invest_min_percent': 2.0,  # 투자를 하는 최소 간격 퍼센트
         'kor_font_path': 'C:\\WINDOWS\\Fonts\\H2GTRM.TTF'
     }
     let_train_invests(corp_names, params)
